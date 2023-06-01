@@ -107,11 +107,14 @@ export default class BingAIClient {
                 ...(this.options.xForwardedFor ? { 'x-forwarded-for': this.options.xForwardedFor } : {}),
             },
         };
+        console.log(JSON.stringify(fetchOptions, null, 2))
+        
         if (this.options.proxy) {
             fetchOptions.dispatcher = new ProxyAgent(this.options.proxy);
         }
         const response = await fetch(`${this.options.host}/turing/conversation/create`, fetchOptions);
 
+        console.log(JSON.stringify(response, null, 2))
         const { status, headers } = response;
         if (status === 200 && +headers.get('content-length') < 5) {
             throw new Error('/turing/conversation/create: Your IP is blocked by BingAI.');
