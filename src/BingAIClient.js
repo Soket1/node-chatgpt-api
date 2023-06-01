@@ -13,11 +13,7 @@ import { BingImageCreator } from '@timefox/bic-sydney';
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 //const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
 //var proxy = new HttpsProxyAgent('http://user117629:21tlbv@23.26.126.113:2821');
-const proxyAgent = new ProxyAgent({
-  uri: '23.26.126.113:2821',
-  // token: 'Bearer xxxx'
-  token: `Basic ${Buffer.from('user117629:21tlbv').toString('base64')}`
-});
+
 
 
 
@@ -118,10 +114,13 @@ export default class BingAIClient {
         };
         console.log(JSON.stringify(fetchOptions, null, 2))
         
-        if (this.options.proxy) {
+        //if (this.options.proxy) {
             //fetchOptions.dispatcher = new ProxyAgent(this.options.proxy);
-            fetchOptions.dispatcher: proxyAgent;
-        }
+            fetchOptions.dispatcher = new ProxyAgent({
+        uri: '23.26.126.113:2821',
+        token: `Basic ${Buffer.from('user117629:21tlbv').toString('base64')}`
+        });
+       // }
         //const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
         //fetchOptions.proxy = proxy;
         const response = await fetch(`${this.options.host}/turing/conversation/create`, fetchOptions);
