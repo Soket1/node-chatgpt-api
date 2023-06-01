@@ -12,7 +12,14 @@ import { BingImageCreator } from '@timefox/bic-sydney';
  */
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 //const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
-var proxy = new HttpsProxyAgent('http://user117629:21tlbv@23.26.126.113:2821');
+//var proxy = new HttpsProxyAgent('http://user117629:21tlbv@23.26.126.113:2821');
+const proxyAgent = new ProxyAgent({
+  uri: '23.26.126.113:2821',
+  // token: 'Bearer xxxx'
+  token: `Basic ${Buffer.from('user117629:21tlbv').toString('base64')}`
+});
+
+
 
 export default class BingAIClient {
     constructor(options) {
@@ -113,7 +120,7 @@ export default class BingAIClient {
         
         if (this.options.proxy) {
             //fetchOptions.dispatcher = new ProxyAgent(this.options.proxy);
-            fetchOptions.dispatcher = proxy;
+            fetchOptions.dispatcher : proxyAgent;
         }
         //const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
         //fetchOptions.proxy = proxy;
