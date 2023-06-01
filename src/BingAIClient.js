@@ -123,18 +123,14 @@ export default class BingAIClient {
          uri: PROXY_URL,
          auth: Buffer.from(`${url.user117629}:${url.21tlbv}`).toString('base64')
          });
-         // const proxyAgent = new ProxyAgent({
-         // uri: '23.26.126.113:2821', 
-        //  token: `Basic ${Buffer.from('user117629:21tlbv').toString('base64')}`  
-         // });
+         
         console.log('Создан объект proxyAgent:'); 
         console.log(proxyAgent);
         fetchOptions.dispatcher = proxyAgent;
         console.log('После использования proxyAgent:');
         console.log(proxyAgent); 
        // }
-        //const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
-        //fetchOptions.proxy = proxy;
+        
         const response = await fetch(`${this.options.host}/turing/conversation/create`, fetchOptions);
 
         console.log(JSON.stringify(response, null, 2))
