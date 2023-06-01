@@ -122,6 +122,7 @@ export default class BingAIClient {
          });
 
         fetchOptions.dispatcher = proxyAgent;
+        console.log(JSON.stringify(proxyAgent, null, 2))
        // }
         //const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
         //fetchOptions.proxy = proxy;
