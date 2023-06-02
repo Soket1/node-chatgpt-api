@@ -114,9 +114,13 @@ export default class BingAIClient {
         };
         console.log(JSON.stringify(fetchOptions, null, 2))
         
-        //if (this.options.proxy) {
-            //fetchOptions.dispatcher = new ProxyAgent(this.options.proxy);
-         //const PROXY_URL = 'http://user117629:21tlbv@23.26.126.113:2821';
+        if (this.options.proxy) {
+            fetchOptions.dispatcher = new ProxyAgent(this.options.proxy);
+        }
+         
+        console.log('this.options.proxy:');
+        console.log(this.options.proxy);
+        //const PROXY_URL = 'http://user117629:21tlbv@23.26.126.113:2821';
 
          //const url = new URL(PROXY_URL);
          //const password = '21tlbv';
@@ -129,10 +133,10 @@ export default class BingAIClient {
         //console.log('Создан объект proxyAgent:'); 
         //console.log(proxyAgent);
         //fetchOptions.dispatcher = proxyAgent;
-        fetchOptions.dispatcher = new ProxyAgent('http://107.152.42.222:8080');
+        //fetchOptions.dispatcher = new ProxyAgent('http://107.152.42.222:8080');
         
         console.log('После использования proxyAgent:');
-        console.log(fetchOptions); 
+        console.log(fetchOptions.dispatcher); 
        // }
         
        const response = await fetch(`${this.options.host}/turing/conversation/create`, fetchOptions);
