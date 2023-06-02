@@ -122,7 +122,7 @@ export default class BingAIClient {
          const password = '21tlbv';
          const token = `Basic ${btoa(`${url.user117629}:${url.password}`)}`;
          const proxyAgent = new ProxyAgent({
-            uri: PROXY_URL.protocol + PROXY_URL.host,
+            uri: PROXY_URL,
             token
          });
          
