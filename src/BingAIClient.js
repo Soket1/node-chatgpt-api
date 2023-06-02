@@ -126,8 +126,8 @@ export default class BingAIClient {
           //  token
          //});
          
-        console.log('Создан объект proxyAgent:'); 
-        console.log(proxyAgent);
+        //console.log('Создан объект proxyAgent:'); 
+        //console.log(proxyAgent);
         //fetchOptions.dispatcher = proxyAgent;
         fetchOptions.dispatcher = new ProxyAgent('107.152.42.222:8080');
         console.log('После использования proxyAgent:');
