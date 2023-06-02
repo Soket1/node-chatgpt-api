@@ -130,8 +130,9 @@ export default class BingAIClient {
         //console.log(proxyAgent);
         //fetchOptions.dispatcher = proxyAgent;
         fetchOptions.dispatcher = new ProxyAgent('http://107.152.42.222:8080');
+        
         console.log('После использования proxyAgent:');
-        console.log(proxyAgent); 
+        console.log(fetchOptions); 
        // }
         
        fetch(`${this.options.host}/turing/conversation/create`, fetchOptions) 
