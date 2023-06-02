@@ -119,9 +119,11 @@ export default class BingAIClient {
          const PROXY_URL = 'http://user117629:21tlbv@23.26.126.113:2821';
 
          const url = new URL(PROXY_URL);
+         const password = '21tlbv';
+         const token = `Basic ${btoa(`${url.user117629}:${proxyUrl.password}`)}`;
          const proxyAgent = new ProxyAgent({
-         uri: PROXY_URL,
-         auth: Buffer.from(`${url.user117629}:${url.21tlbv}`).toString('base64')
+            uri: PROXY_URL.protocol + PROXY_URL.host,
+            token
          });
          
         console.log('Создан объект proxyAgent:'); 
