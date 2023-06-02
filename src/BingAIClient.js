@@ -135,24 +135,19 @@ export default class BingAIClient {
         console.log(fetchOptions); 
        // }
         
-       fetch(`${this.options.host}/turing/conversation/create`, fetchOptions) 
-  .then(response => {
-    const { status, headers } = response;
-    if (status === 200 && +headers.get('content-length') < 5) {
-      throw new Error('/turing/conversation/create: Your IP is blocked by BingAI.');  
-    }
-    return response.text(); 
-  })
-  .then(body => {
-    try {
-      return JSON.parse(body);
-    } catch (err) {
-      throw new Error(`/turing/conversation/create: failed to parse response body.\n${body}`);
-    }
-  })
-  .catch(err => {
-    console.log(err); 
-  }) 
+       const response = await fetch(`${this.options.host}/turing/conversation/create`, fetchOptions);
+
+        const { status, headers } = response;
+        if (status === 200 && +headers.get('content-length') < 5) {
+            throw new Error('/turing/conversation/create: Your IP is blocked by BingAI.');
+        }
+
+        const body = await response.text();
+        try {
+            return JSON.parse(body);
+        } catch (err) {
+            throw new Error(`/turing/conversation/create: failed to parse response body.\n${body}`);
+        }
     }
 
     async createWebSocketConnection() {
