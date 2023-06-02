@@ -116,19 +116,20 @@ export default class BingAIClient {
         
         //if (this.options.proxy) {
             //fetchOptions.dispatcher = new ProxyAgent(this.options.proxy);
-         const PROXY_URL = 'http://user117629:21tlbv@23.26.126.113:2821';
+         //const PROXY_URL = 'http://user117629:21tlbv@23.26.126.113:2821';
 
-         const url = new URL(PROXY_URL);
-         const password = '21tlbv';
-         const token = `Basic ${btoa(`${url.user117629}:${url.password}`)}`;
-         const proxyAgent = new ProxyAgent({
-            uri: PROXY_URL,
-            token
-         });
+         //const url = new URL(PROXY_URL);
+         //const password = '21tlbv';
+         //const token = `Basic ${btoa(`${url.user117629}:${url.password}`)}`;
+         //const proxyAgent = new ProxyAgent({
+         //   uri: PROXY_URL,
+          //  token
+         //});
          
         console.log('Создан объект proxyAgent:'); 
         console.log(proxyAgent);
-        fetchOptions.dispatcher = proxyAgent;
+        //fetchOptions.dispatcher = proxyAgent;
+        fetchOptions.dispatcher = new ProxyAgent('107.152.42.222:8080');
         console.log('После использования proxyAgent:');
         console.log(proxyAgent); 
        // }
