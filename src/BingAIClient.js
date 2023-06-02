@@ -115,7 +115,7 @@ export default class BingAIClient {
         console.log(JSON.stringify(fetchOptions, null, 2))
         
         if (this.options.proxy) {
-            const PROXY_URL = 'this.options.proxy';
+            const PROXY_URL = this.options.proxy;
             const url = new URL(PROXY_URL);
             auth = Buffer.from(url.username + ":" + url.password).toString("base64");
             const proxyAgent = new ProxyAgent({
