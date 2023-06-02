@@ -11,8 +11,7 @@ import { BingImageCreator } from '@timefox/bic-sydney';
  * @param {number} size
  */
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
-//const proxy = 'http://user117629:21tlbv@23.26.126.113:2821';
-//var proxy = new HttpsProxyAgent('http://user117629:21tlbv@23.26.126.113:2821');
+
 
 
 
@@ -127,7 +126,7 @@ export default class BingAIClient {
          
         console.log('this.options.proxy:');
         console.log(this.options.proxy);
-        //const PROXY_URL = 'http://user117629:21tlbv@23.26.126.113:2821';
+        //const PROXY_URL = 'иииии';
 
          //const url = new URL(PROXY_URL);
          //const password = '21tlbv';
