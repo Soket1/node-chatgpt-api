@@ -111,7 +111,7 @@ export default class BingAIClient {
                 ...(this.options.xForwardedFor ? { 'x-forwarded-for': this.options.xForwardedFor } : {}),
             },
         };
-        console.log(JSON.stringify(fetchOptions, null, 2))
+        // console.log(JSON.stringify(fetchOptions, null, 2))
         
         if (this.options.proxy) {
             const PROXY_URL = this.options.proxy;
@@ -128,21 +128,15 @@ export default class BingAIClient {
         console.log(this.options.proxy);
         //const PROXY_URL = 'иииии';
 
-         //const url = new URL(PROXY_URL);
-         //const password = '21tlbv';
-         //const token = `Basic ${btoa(`${url.user117629}:${url.password}`)}`;
-         //const proxyAgent = new ProxyAgent({
-         //   uri: PROXY_URL,
-          //  token
-         //});
+         
          
         //console.log('Создан объект proxyAgent:'); 
         //console.log(proxyAgent);
         //fetchOptions.dispatcher = proxyAgent;
         //fetchOptions.dispatcher = new ProxyAgent('http://107.152.42.222:8080');
         
-        console.log('После использования proxyAgent:');
-        console.log(fetchOptions.dispatcher); 
+       // console.log('После использования proxyAgent:');
+       // console.log(fetchOptions.dispatcher); 
        // }
         
         console.log('fetchOptions:');
