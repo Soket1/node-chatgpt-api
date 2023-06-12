@@ -150,6 +150,9 @@ export default class BingAIClient {
             throw new Error('/turing/conversation/create: Your IP is blocked by BingAI.');
         }
 
+        if (response.status === 400) {
+            throw new Error('Bad Request: message text is empty'); 
+        } 
         const body = await response.text();
         try {
             return JSON.parse(body);
