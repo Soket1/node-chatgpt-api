@@ -110,6 +110,7 @@ export default class BingAIClient {
                 // 'x-forwarded-for': '1.1.1.1', // 1.1.1.1 seems to no longer work.
                 ...(this.options.xForwardedFor ? { 'x-forwarded-for': this.options.xForwardedFor } : {}),
             },
+            return_error_details: true 
         };
         // console.log(JSON.stringify(fetchOptions, null, 2))
         
