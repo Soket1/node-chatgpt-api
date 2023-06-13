@@ -5,13 +5,14 @@ import Keyv from 'keyv';
 import { ProxyAgent } from 'undici';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 import { BingImageCreator } from '@timefox/bic-sydney';
+import logger from 'logger';
 
 /**
  * https://stackoverflow.com/a/58326357
  * @param {number} size
  */
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
-const logger = require('logger');
+
 
 // Устанавливаем уровень логов на "debug"
 logger.setLevel('debug');
