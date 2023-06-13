@@ -11,7 +11,15 @@ import { BingImageCreator } from '@timefox/bic-sydney';
  * @param {number} size
  */
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+const logger = require('logger');
 
+// Устанавливаем уровень логов на "debug"
+logger.setLevel('debug');
+
+logger.debug('Отладочное сообщение');
+logger.info('Информационное сообщение');
+logger.warn('Предупреждение');
+logger.error('Ошибка!');
 
 
 
