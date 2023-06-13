@@ -81,6 +81,7 @@ export default class BingAIClient {
     }
 
     async createNewConversation() {
+        let data;
         const fetchOptions = {
             headers: {
                 accept: 'application/json',
@@ -155,10 +156,13 @@ export default class BingAIClient {
         } 
         const body = await response.text();
         try {
-            return JSON.parse(body);
-        } catch (err) {
+            data = JSON.parse(body);
+            return data; 
+        }   catch (err) {
             throw new Error(`/turing/conversation/create: failed to parse response body.\n${body}`);
-        }
+        }  
+  
+        return data;
     }
 
     async createWebSocketConnection() {
