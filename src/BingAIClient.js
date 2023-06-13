@@ -5,7 +5,7 @@ import Keyv from 'keyv';
 import { ProxyAgent } from 'undici';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 import { BingImageCreator } from '@timefox/bic-sydney';
-import logger from 'logger';
+
 
 /**
  * https://stackoverflow.com/a/58326357
@@ -14,13 +14,7 @@ import logger from 'logger';
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
 
-// Устанавливаем уровень логов на "debug"
-logger.setLevel('debug');
 
-logger.debug('Отладочное сообщение');
-logger.info('Информационное сообщение');
-logger.warn('Предупреждение');
-logger.error('Ошибка!');
 
 
 
